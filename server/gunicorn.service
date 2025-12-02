@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance for ReportGenretor
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/Soil-and-Plant-Therapy-Generator/backend
+Environment="PATH=/home/ubuntu/Soil-and-Plant-Therapy-Generator/backend/venv/bin"
+EnvironmentFile=/home/ubuntu/Soil-and-Plant-Therapy-Generator/backend/.env
+ExecStart=/home/ubuntu/Soil-and-Plant-Therapy-Generator/backend/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 app:app
+[Install]
+WantedBy=multi-user.target
