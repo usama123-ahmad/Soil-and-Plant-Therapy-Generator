@@ -1348,7 +1348,7 @@ const SoilReportGenerator: React.FC = () => {
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch('/extract-soil-report', {
+      const response = await fetch('https://soil-and-plant-therapy-generator-production.up.railway.app/extract-soil-report', {
         method: 'POST',
         body: formData,
       });
